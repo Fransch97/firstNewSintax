@@ -18,6 +18,11 @@ const App = () => {
     setNumbers(newState)
   }
 
+  deleteNumber = (i) => {
+    const newNumbers = numbers.filter((item, ii) => i !== ii )
+    setNumbers(newNumbers);
+  } 
+
   useEffect(() => {
     setTimeout(() => {
       setHello("now i am changed")
@@ -32,7 +37,7 @@ const App = () => {
       <Nav name={hello}/>
       <Generate passFunc={(text) => onAddRandom(text)}/>
       
-      <NumberItem numbers={numbers}/>
+      <NumberItem numbers={numbers} deletes={(i) => deleteNumber(i)}/>
     </ScrollView>
   )
 }

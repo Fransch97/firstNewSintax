@@ -1,14 +1,18 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 
-const NumberItem = ({numbers}) => {
+const NumberItem = ({numbers, deletes}) => {
     return(
         numbers.map((number, i) => (
-            <View 
+            <Pressable
                 key={i}
+                onPress={() => {deletes(i)}}
             >
-                <Text style={css.number}>{number}</Text>
-            </View>
+                <View 
+                >
+                    <Text style={css.number}>{number}</Text>
+                </View>
+            </Pressable>
         ))
     )
 }
