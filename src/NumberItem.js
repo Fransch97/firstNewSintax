@@ -3,8 +3,10 @@ import { Text, View, StyleSheet } from "react-native";
 
 const NumberItem = ({numbers}) => {
     return(
-        numbers.map((number) => (
-            <View>
+        numbers.map((number, i) => (
+            <View 
+                key={i}
+            >
                 <Text style={css.number}>{number}</Text>
             </View>
         ))
